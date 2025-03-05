@@ -1,0 +1,16 @@
+<div class="most-viewed">
+    <h4 class="title">Latest <span class="dot">•</span></h4>
+    <div
+      *ngFor="let item of latestViews  | slice:0:5; let i = index"
+      class="view-item d-flex "
+    >
+      <div class="number-box" [ngStyle]="{ 'background-color': item.category.color }">
+        {{ ("0" + (i + 1)).slice(-2) }}
+      </div>
+      <div class="content">
+        <h5>{{ item.title }}</h5>
+        <p>{{ item.des }}</p> <!-- Description from API -->
+      </div>
+    </div>
+  </div>
+  

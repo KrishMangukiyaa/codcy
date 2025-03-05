@@ -1,1 +1,51 @@
-<p>footer works!</p>
+<div class="footer-container">
+  <p class="footer-main-text">Never trust atoms; they make up everything</p>
+  <form [formGroup]="subscribeForm" (ngSubmit)="onSubmit()" class="subscribe-form">
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="email@gmail.com"
+      class="subscribe-input"
+    />
+    <button type="submit" class="subscribe-button">
+      <i class="fa fa-paper-plane"></i> Subscribe
+    </button>
+  </form>
+  <app-message *ngIf="successMessage" [message]="successMessage"></app-message>
+  <app-message *ngIf="errorMessage" [message]="errorMessage"></app-message>
+</div>
+<div class="footer-wrapper">
+  <p>WordPress Theme by <strong>3FortyMedia</strong></p>
+
+  <div class="social-icons">
+    <a [href]="socialLinks.facebook ? socialLinks.facebook : '#'"
+   (click)="handleClick($event, socialLinks.facebook)">
+  <i class="fab fa-facebook"></i>
+</a>
+
+<a [href]="socialLinks.instagram ? socialLinks.instagram : '#'"
+   (click)="handleClick($event, socialLinks.instagram)">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<a [href]="socialLinks.twitter ? socialLinks.twitter : '#'"
+   (click)="handleClick($event, socialLinks.twitter)">
+  <i class="fab fa-twitter"></i>
+</a>
+
+<a [href]="socialLinks.github ? socialLinks.github : '#'"
+   (click)="handleClick($event, socialLinks.github)">
+  <i class="fab fa-github"></i>
+</a>
+
+<!-- <a [href]="socialLinks.website ? socialLinks.website : '#'"
+   (click)="handleClick($event, socialLinks.website)">
+  <i class="fas fa-globe"></i>
+</a> -->
+
+  </div>
+
+  <!-- <button class="scroll-top">
+    <i class="fas fa-arrow-up"></i>
+  </button> -->
+</div>
