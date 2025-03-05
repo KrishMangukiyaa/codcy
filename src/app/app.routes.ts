@@ -8,10 +8,22 @@ import { CatagoryComponent } from './pages/catagory/catagory.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { MainComponent } from './pages/home/main/main.component';
+import { AuthAccessService } from './service/auth-access/auth-access.service';
 export const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        redirectTo: '/home',
+        pathMatch: 'full',
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+        canActivate: [AuthAccessService],
+    },
+    {
+        path: 'registration',
+        component: RegisterComponent
     },
     {
         path: 'admin',

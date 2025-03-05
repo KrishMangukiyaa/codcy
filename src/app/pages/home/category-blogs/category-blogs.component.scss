@@ -1,0 +1,103 @@
+.blog-grid {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.blog-card-container{
+  max-width: 90%;
+}
+.category-title {
+  font-size: var(--h2-font-size);
+  padding: 40px 0 40px 10px !important;
+}
+/* Blog Card */
+.blog-card {
+  max-width: 90%;
+  width: 28%;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-img {
+    border-radius: 15px 15px 0 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .card-body {
+    padding: 20px;
+
+    .blog-title {
+      font-size: var(--h2-font-size);
+      font-weight: var(--title-font-weight-extra);
+      color: var(--h1-color);
+      min-height: 65px;
+    }
+
+    .blog-meta {
+      font-size: var(--mini-text-size);
+      color: var(--h1-color);
+      // margin: 10px 0;
+      display: flex;
+      flex-direction: row;
+      padding: 0px 60px 0px 0px;
+      justify-content: space-between;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      padding: 15px;
+      // background: rgba(255, 255, 255, 0.2);
+      border-radius: 0 0 15px 15px;
+
+      .author-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .author-details {
+        .author-name {
+          color: var(--h1-color);
+          font-weight: var(--title-font-weight-extra);
+          font-size: var(--mini-text-size);
+        }
+
+        .publish-date {
+          font-size: 12px;
+          color: var(--h1-color);
+        }
+      }
+    }
+  }
+  .blog-description {
+    color: var(--h1-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+  }
+}
+
+.tag-name-wrapper {
+  position: absolute;
+  top: 36px;
+  left: -16%;
+}

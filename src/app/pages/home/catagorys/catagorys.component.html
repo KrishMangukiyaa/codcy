@@ -1,1 +1,18 @@
-<p>catagorys works!</p>
+<div class="editors-picks container" #scrollContainer>
+    <h2>editors picks.</h2>
+    <div class="scroll-container d-flex" >
+      <div
+        *ngFor="let category of categories"
+        class="category-card "
+        [style.backgroundColor]="category.color "
+      >
+        <ul class="tag-name-wrapper">
+          <li class="tag-name">
+            <a href="#">{{ category.name }}</a>
+          </li>
+        </ul>
+        <h3>{{ category.description }}</h3>
+      </div>
+    </div>
+  </div>
+  
