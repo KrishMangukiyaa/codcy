@@ -7,7 +7,7 @@ import { CategoryService } from '../../service/category/category.service';
   selector: 'app-header',
   imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   isNavbarOpen = false;
@@ -74,20 +74,16 @@ export class HeaderComponent {
       (error) => {
         console.error('Error fetching categories:', error);
       }
-  
     );
   }
-  
 
   openDropdown() {
     this.isDropdownOpen = true;
-    console.log(this.isDropdownOpen)
+    console.log(this.isDropdownOpen);
   }
-  
+
   closeDropdown() {
     this.isDropdownOpen = false;
-    console.log(this.isDropdownOpen)
+    console.log(this.isDropdownOpen);
   }
-
-
 }

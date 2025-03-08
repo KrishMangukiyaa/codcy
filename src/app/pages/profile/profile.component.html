@@ -1,0 +1,87 @@
+<app-header></app-header>
+<div class="container-fluid profile-page">
+  <div class="row">
+    <!-- Profile Sidebar -->
+    <div class="col-md-4 profile-sidebar text-center">
+      <img
+        [src]="
+          userData?.personal_info.profile_img ||
+          'https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D'
+        "
+        class="profile-img"
+        alt="Profile Image"
+      />
+      <h1 class="mt-3">{{ userData?.personal_info.fullname }}</h1>
+      <p class="bio">{{ userData?.personal_info.bio || "No bio available" }}</p>
+      <span *ngIf="userData?.account_info.isAdmin" class="admin-badge"
+        >Admin</span
+      >
+    </div>
+
+    <!-- Profile Content -->
+    <div class="col-md-8 profile-content">
+      <div class="account-info mb-4">
+        <h2>Account Information</h2>
+        <div class="info-grid">
+          <div>Total Posts: {{ userData?.account_info.total_posts }}</div>
+          <div>Total Reads: {{ userData?.account_info.total_reads }}</div>
+        </div>
+      </div>
+
+      <div class="social-links mb-4">
+        <h2>Social Links</h2>
+        <div class="links-grid">
+          <a
+            *ngIf="userData?.social_links.youtube"
+            [href]="userData.social_links.youtube"
+            target="_blank"
+            >YouTube</a
+          >
+          <a
+            *ngIf="userData?.social_links.instagram"
+            [href]="userData.social_links.instagram"
+            target="_blank"
+            >Instagram</a
+          >
+          <a
+            *ngIf="userData?.social_links.github"
+            [href]="userData.social_links.github"
+            target="_blank"
+            >GitHub</a
+          >
+          <a
+            *ngIf="userData?.social_links.website"
+            [href]="userData.social_links.website"
+            target="_blank"
+            >Website</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="blogs-section">
+      <h2>Blogs</h2>
+      <div class="blog-cards">
+        <div class="row">
+          <div
+            class="col-md-4 mb-4"
+            *ngFor="let blog of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+          >
+            <div class="card">
+              <div class="card-body">
+                <div class="edit-icon" (click)="editBlog(blog)">
+                  <i class="fas fa-edit"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Explicabo qui fuga accusantium aliquam quos! Suscipit incidunt
+                  non, dolore vitae.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

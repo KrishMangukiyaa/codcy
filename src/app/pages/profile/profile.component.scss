@@ -1,0 +1,115 @@
+// profile.component.css
+.profile-page {
+  min-height: 100vh;
+  // background: rgba(255, 255, 255, 0.1);
+  // backdrop-filter: blur(10px);
+  // color: #fff;
+  padding-top: 20px;
+}
+
+.profile-sidebar {
+  // background-color: #1e293b;
+  // color: #fff;
+  padding: 40px 20px;
+  // border-right: 5px solid #90caf9;
+  border-radius: 20px;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #90caf9;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f3a6c9;
+}
+
+.bio {
+  font-style: italic;
+  margin-top: 10px;
+  // color: #ddd;
+}
+
+.admin-badge {
+  // background-color: #eb2248;
+  // color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-top: 10px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.profile-content {
+  // background-color: #fff;
+  // color: #333;
+  padding: 40px;
+  border-radius: 30px;
+  border-bottom-left-radius: 30px;
+  // box-shadow: -10px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.info-grid,
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.social-links a {
+  display: inline-block;
+  text-decoration: none;
+  // color: #90caf9;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: #f3a6c9;
+  transform: scale(1.1);
+}
+
+.blog-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  // background: #f3a6c9;
+  // color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+//new
+// CSS Changes
+.blog-cards .card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover .edit-icon {
+  opacity: 1;
+}
