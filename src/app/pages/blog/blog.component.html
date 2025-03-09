@@ -1,1 +1,35 @@
-https://www.3forty.media/koga/demo/2024/09/23/astonished-and-acceptance-men-two-discretion/
+<div class="blog-page">
+  <h1 class="title">Travel <span class="badge">3</span></h1>
+  <p class="description">
+    Pianoforte solicitude so decisively unpleasing conviction is partiality he.
+    Or particular so diminution entreaties oh do.
+  </p>
+
+  <!-- <div class="blog-container"> -->
+  <label
+    *ngFor="let blog of blogs; let i = index"
+    [ngClass]="{ tall: i % 3 === 0, short: i % 3 === 1 }"
+    class="blog-card"
+  >
+    <div class="blog-image-container">
+      <img [src]="blog.image" alt="blog image" class="blog-image" />
+    </div>
+
+    <div class="blog-content">
+      <h3 class="blog-title">{{ blog.title }}</h3>
+      <p class="blog-description">{{ blog.content }}</p>
+
+      <div class="blog-info">
+        <span
+          >{{ blog.comments }} • {{ blog.readTime }} • {{ blog.views }}</span
+        >
+      </div>
+
+      <div class="author">
+        <p>{{ blog.author }}</p>
+        <span>{{ blog.date }}</span>
+      </div>
+    </div>
+  </label>
+  <!-- </div> -->
+</div>
