@@ -1,8 +1,7 @@
 <div class="container blog-card-container">
   <div *ngFor="let category of categoriesWithBlogs">
-    <!-- Condition: Only display category if it has at least 3 blogs -->
-    <ng-container *ngIf="category.blogs && category.blogs.length > 2">
-      <h1 class="category-title">
+    <ng-container *ngIf="category.blogs ">
+      <h1 class="category-title" [routerLink]="['/category', category._id]">
         {{ category.name }} <span class="dot">&bull;</span>
       </h1>
       <div class="blog-grid">
@@ -10,8 +9,8 @@
           class="blog-card"
           [ngStyle]="{ 'background-color': category.color }"
           *ngFor="let blog of category.blogs.slice(0, 3)"
+          [routerLink]="['/blog', blog._id]"
         >
-          <!-- Condition: Only display blog if it has a valid image and title -->
           <ng-container *ngIf="blog.Blog_image && blog.title">
             <div class="card-img">
               <img
@@ -23,22 +22,18 @@
             <div class="tag-name-wrapper">
               <ul>
                 <li>
-                  <a href="#">{{ category.name }}</a>
+                  <a [routerLink]="['/category', category._id]">{{ category.name }}</a>
                 </li>
               </ul>
             </div>
             <div class="card-body">
               <h5 class="blog-title">{{ blog.title }}</h5>
-              <p class="blog-description">{{ blog.des || 'No description available.' }}</p>
+              <p class="blog-description">
+                {{ blog.des || "No description available." }}
+              </p>
               <div class="blog-meta">
-                <span>
-                  {{ blog.comments || 0 }} Comments &bull;      
-                  <!-- {{ blog.readTime || 'N/A' }}  &bull;  -->
-                  <!-- {{ blog.views || 0 }} Views -->
-                </span>
-                <span>
-                  {{ blog.views || 0 }} Views
-                </span>
+                <span> {{ blog.comments || 0 }} Comments &bull; </span>
+                <span> {{ blog.views || 0 }} Views </span>
               </div>
               <div class="author-info">
                 <img
@@ -47,9 +42,13 @@
                 />
                 <div class="author-details">
                   <h6 class="author-name">
-                    {{ blog.author?.personal_info?.fullname || 'Unknown Author' }}
+                    {{
+                      blog.author?.personal_info?.fullname || "Unknown Author"
+                    }}
                   </h6>
-                  <p class="publish-date">{{ blog.publishedAt | date:'medium' }}</p>
+                  <p class="publish-date">
+                    {{ blog.publishedAt | date : "medium" }}
+                  </p>
                 </div>
               </div>
             </div>

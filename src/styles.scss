@@ -193,7 +193,7 @@
 
 :root {
   --theme-background: #e4e4e4f3;
-  --theme-text: #000000;
+  // --theme-text: #000000;
   --card-background-color-1: #c9e4de;
 
   --h1-font-size: 3.7rem;
@@ -214,7 +214,12 @@
   --theme-text: #fff;
   --backgroung-light-dark: rgba(255, 255, 255, 0.06);
   --scroller-background: rgba(255, 255, 255, 0.4);
-  --toster-backgroung:
+  --toster-backgroung: rgba(-255, -255, -255, 0.06);
+  --textarea-background : rgba(0, 0, 0, 0.9);
+  --save-btn: #c9e4de;
+  --chart-background: rgba(-255, -255, -255, 0.4);
+  --popup-background: rgba(0, 0, 0, 0.7);
+  --editting-sidebar-background: rgba(0, 0, 0, 0.3);
 }
 
 .light-theme {
@@ -222,6 +227,11 @@
   --theme-text: #000;
   --backgroung-light-dark: rgba(255, 255, 255, 0.6);
   --scroller-background: rgba(-255, -255, -255, 0.6);
+  --textarea-background : rgba(184, 184, 184, 0.09);
+  --save-btn: #c9e4de;
+  --chart-background: rgba(-255, -255, -255, 0.06);
+  --popup-background: rgba(255, 255, 255, 0.8)
+  --editting-sidebar-background: #fff;
 }
 
 body {
@@ -246,14 +256,13 @@ p {
   gap: 20px;
   position: absolute;
   top: 20px;
-  left: -60px;
+  left: -30px;
   flex-direction: column;
   font-size: 12px;
   font-weight: 600;
+  transform: rotate(270deg);
 
-  li {
-    transform: rotate(270deg);
-  }
+
   a {
     text-decoration: none;
     color: var(--theme-text);
@@ -314,8 +323,81 @@ body::-webkit-scrollbar-track {
   display: none;
 }
 
+.my-btn{
+  background: #f8c8dc;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  gap: 8px;
+  color: black;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.my-btn:hover {
+  background: #f4a7c1 !important;
+}
 
 
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999999;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.popup {
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 500px;
+  position: relative;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.popup-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.close-btn {
+  font-size: var(--footer-font-size) !important;
+  color: var(--theme-text);
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .popup {
+    width: 90%;
+  }
+}
 
 
 @media (min-width: 1920px) {

@@ -37,8 +37,36 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Platform</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/home/profile">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/platform">Platform</a></li>
+          <li
+          class="nav-item nav-menu"
+          (mouseenter)="openAdminDropdown()"
+          (mouseleave)="closeAdminDropdown()"
+          (click)="openAdminDropdown()"
+          *ngIf="isAdmin"
+        >
+          <a class="nav-link" href="#">
+            Admin <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul
+            class="dropdown"
+            (mouseenter)="openAdminDropdown()"
+            (mouseleave)="closeAdminDropdown()"
+            *ngIf="isAdminDropdownOpen"
+          >
+            <li>
+              <a class="dropdown-list" routerLink="/admin">Dashbord</a>
+            </li>
+            <li>
+              <a class="dropdown-list" routerLink="/admin/blog">Blog</a>
+            </li>
+            <li>
+              <a class="dropdown-list" routerLink="/admin/category">Categories</a>
+            </li>
+          </ul>
+        </li>
+        
         </ul>
       </div>
 
@@ -50,7 +78,7 @@
         >
         </i>
         <i class="fas fa-search"></i>
-        <button class="subscribe-btn">Login</button>
+        <button class="subscribe-btn my-btn" routerLink="/login">Login</button>
       </div>
 
       <button

@@ -1,0 +1,44 @@
+<div class="header-container" [ngStyle]="isHeaderVisible ? {} : {'position': 'absolute', 'top': '-30%', 'width': '100%'}">
+    <app-header></app-header>
+</div>
+
+<div class="code-editor">
+  <div class="top-bar">
+    <div class="editor-container">
+      <div class="code-panels" [style.width.px]="editorWidth">
+        <div class="panel">
+          <div class="panel-header"> HTML</div>
+          <textarea [(ngModel)]="htmlCode" (input)="updateOutput()"></textarea>
+        </div>
+        <div class="panel">
+          <div class="panel-header"> CSS</div>
+          <textarea [(ngModel)]="cssCode" (input)="updateOutput()"></textarea>
+        </div>
+        <div class="panel">
+          <div class="panel-header">JS</div>
+          <textarea [(ngModel)]="jsCode" (input)="updateOutput()"></textarea>
+        </div>
+      </div>
+      <div
+        class="resizer"
+        (mousedown)="startResizing($event)"
+        (dblclick)="autoResize($event)"
+      ></div>
+      <div class="output-panel">
+        <div class="output-panel-container">
+            <h3>Output</h3>
+            <div class="output-panel-btn-wrapper">
+                <button class="save-btn">
+                    <i class="fas fa-save"></i> save
+                </button>
+                <button class="save-btn" (click)="toggleHeader()">
+                    Zen Mode
+                </button>
+
+            </div>
+        </div>
+        <iframe #outputFrame placeholder=""></iframe>
+      </div>
+    </div>
+  </div>
+</div>

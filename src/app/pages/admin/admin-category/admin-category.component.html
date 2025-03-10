@@ -1,0 +1,53 @@
+<div class="popup-container" *ngIf="showPopup">
+    <div class="popup">
+      <button class="close-btn" (click)="closePopup()"> <i class="fa-solid fa-close"></i></button>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+  <div class="admin-category-container">
+    <h2>Manage Categories</h2>
+    <div class="add-btn-container">
+      <button class="add-category-btn my-btn" (click)="openPopup('/admin/category/add')">
+        + Add Category
+      </button>
+    </div>
+  
+    <div class="table-container">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Show on Home</th>
+            <th>Category Name</th>
+            <th>Color</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            
+            <td>
+              <input 
+                type="checkbox" 
+                [checked]="category.showOnHome" 
+                (change)="toggleShowOnHome(category._id)" 
+              />
+            </td>
+            <td>{{ category.name }}</td>
+            <td>
+              <span [style.background]="category.color" class="color-box"></span>
+              {{ category.color }}
+            </td>
+            <td>{{ category.description }}</td>
+            <td class="action-buttons">
+              <button class="my-btn edit-btn" (click)="openPopup('/admin/category/edit/' + category._id)">Edit</button>
+              <button class="my-btn delete-btn" (click)="deleteCategory(category._id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  

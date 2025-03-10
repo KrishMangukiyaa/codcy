@@ -1,0 +1,65 @@
+<div class="blog-container">
+    <form
+      [formGroup]="blogForm"
+      class="add-a-blog-wrapper"
+      (ngSubmit)="submitBlog()"
+    >
+    <div class="editting-btn-sidebar">
+      <button class="editting-btn" (click)="addElement('h1')">H1</button>
+      <button class="editting-btn" (click)="addElement('h2')">H2</button>
+      <button class="editting-btn" (click)="addElement('h3')">H3</button>
+      <button class="editting-btn" (click)="addElement('h4')">H4</button>
+      <button class="editting-btn" (click)="addElement('h5')">H5</button>
+      <button class="editting-btn" (click)="addElement('h6')">H6</button>
+      <button class="editting-btn" (click)="addElement('p')">Paragraph</button>
+      <button class="editting-btn" (click)="addElement('code')">Code</button>
+      <button class="editting-btn" (click)="addElement('img')">Image</button>
+    </div>
+      <div class="blog-main" contenteditable="true" #blogContent>
+      </div>
+  
+      <!-- Right Sidebar (30%) -->
+      <div class="blog-sidebar">
+        <input
+          type="text"
+          placeholder="Enter a Title"
+          formControlName="title"
+          required
+        />
+  
+        <select
+          formControlName="category"
+          (change)="onCategorySelect($event)"
+          required
+        >
+          <option value="" disabled selected>Select a category</option>
+          <option *ngFor="let cat of categories" [value]="cat._id">
+            {{ cat.name }}
+          </option>
+        </select>
+  
+        <textarea
+          formControlName="des"
+          rows="6"
+          class="des-textarea"
+          placeholder="Enter Short Description For Your Blog"
+        ></textarea>
+  
+        <input type="text" formControlName="tags" placeholder="#hashtag" />
+  
+        <label>Upload Image:</label>
+        <input
+          type="file"
+          (change)="onFileSelected($event)"
+          placeholder="Enter a Blog image"
+        />
+        <div class="draft-checkbox-container">
+          <label>Draft:</label>
+          <input type="checkbox" class="draft-checkbox" formControlName="draft" />
+        </div>
+  
+        <button type="submit" class="my-btn add-btn">Add Blog</button>
+      </div>
+    </form>
+  </div>
+  

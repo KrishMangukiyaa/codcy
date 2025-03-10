@@ -1,0 +1,29 @@
+<div class="category-form-container">
+  <h2>{{ editMode ? "Edit Category" : "Add Category" }}</h2>
+
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <label>Category Name:</label>
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Enter category name"
+    />
+
+    <label>Color:</label>
+    <input
+      type="text"
+      formControlName="color"
+      placeholder="Enter category color"
+    />
+
+    <label>Description:</label>
+    <textarea
+      formControlName="description"
+      placeholder="Enter category description"
+    ></textarea>
+
+    <button class="my-btn" type="submit" [disabled]="categoryForm.invalid">
+      {{ editMode ? "Update Category" : "Add Category" }}
+    </button>
+  </form>
+</div>

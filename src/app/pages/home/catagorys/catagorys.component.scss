@@ -61,18 +61,11 @@
 }
 
 .tag-name-wrapper {
-  // list-style: none;
-  // padding: 0;
   right: 100%;
-  top: 30px;
+  top: 50px;
   
 }
 
-.scroll-container .category-card:first-child {
-  .tag-name-wrapper{
-    top: 60px;
-  }
-}
 .tag-name a {
   text-decoration: none;
   font-weight: bold;

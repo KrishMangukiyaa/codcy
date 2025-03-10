@@ -2,24 +2,28 @@
   display: flex;
   gap: 50px;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding: 0px 20px;
 }
 
-.blog-card-container{
+.blog-card-container {
   max-width: 90%;
 }
 .category-title {
   font-size: var(--h2-font-size);
   padding: 40px 0 40px 10px !important;
+  max-width: 200px;
+  width: min-content;
+  display: ruby-text;
+  cursor: pointer;
 }
-/* Blog Card */
+
 .blog-card {
   max-width: 90%;
   width: 28%;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-5px);
@@ -99,5 +103,6 @@
 .tag-name-wrapper {
   position: absolute;
   top: 36px;
-  left: -16%;
+  left: -13%;
+  transform: rotate(270deg);
 }

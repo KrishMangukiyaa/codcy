@@ -1,0 +1,23 @@
+<div class="table-container">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th class="table-checkbox"><input type="checkbox"  (change)="selectAll($event)" /></th>
+        <th>Profile Image</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td class="table-checkbox"><input type="checkbox"  [(ngModel)]="user.selected" /></td>
+        <td>
+            <img [src]="'http://localhost:4002' + user.personal_info.profile_img" alt="Profile" class="profile-img" />
+
+        </td>
+        <td>{{ user.personal_info.fullname }}</td>
+        <td>{{ user.personal_info.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
