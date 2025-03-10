@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../../../service/category/category.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-category-blogs',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './category-blogs.component.html',
   styleUrl: './category-blogs.component.scss'
 })
@@ -18,8 +19,9 @@ export class CategoryBlogsComponent {
       (categories) => {
         this.categoriesWithBlogs = categories.map(category => ({
           ...category,
-          blogs: category.blogs.slice(0, 3) // Limit to 3 blogs per category
+          blogs: category.blogs.slice(0, 3)
         }));
+        debugger
       },
       (error) => {
         console.error('Error fetching home categories with blogs:', error);

@@ -1,0 +1,106 @@
+.blog-container {
+    padding: 20px;
+  
+    .blog-main {
+      width: 70%;
+      background-color: var(--theme-background);
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+      margin-left: 5%;
+  
+      &:focus-visible{
+          outline: none;
+      }
+    }
+    .add-a-blog-wrapper {
+      display: flex;
+      width: 100%;
+    }
+  
+    .blog-sidebar {
+      width: 30%;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  
+    label {
+      display: block;
+      font-size: var(--h3-font-size);
+      font-weight: var(--title-font-weight);
+      margin-top: 10px;
+      color: var(--h1-color);
+    }
+  
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 18px;
+      border-radius: 5px;
+      border: none;
+    }
+    .draft-checkbox-container {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+  
+      .draft-checkbox {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  
+    .des-textarea {
+      resize: none;
+    }
+  }
+  
+  .editting-btn {
+    font-size: var(--h3-font-size);
+    font-family: var(--font-family);
+    background-color: transparent;
+    //   background: var(--editting-sidebar-background) ;
+    color: var(--theme-text);
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #f4a7c1;
+    }
+  }
+  
+  .editting-btn-sidebar {
+    height: 87vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 20px 50px 10px;
+    margin-top: -70px;
+    border-radius: 50px;
+    position: absolute;
+    left: -10%;
+    z-index: 999999;
+    transition: left 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+  
+    &::-webkit-scrollbar {
+      display: none; 
+    }
+    
+    &:hover {
+      left: 0;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .add-btn {
+    width: 100%;
+    margin-top: 40px;
+  }
+  

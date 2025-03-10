@@ -1,0 +1,56 @@
+<div class="container blog-card-container">
+  <h2>Manage Blogs.</h2>
+  <div class="add-btn-container">
+    <button class="add-category-btn my-btn" routerLink="/admin/blog/add-blog">
+      + Add Blog
+    </button>
+  </div>
+
+  <div class="blog-grid">
+    <div
+      class="blog-card"
+      *ngFor="let blog of categoriesWithBlogs"
+      [routerLink]="['/blog', blog._id]"
+    >
+    <div class="card-buttons">
+      <button class="edit-btn my-btn" (click)="editBlog(blog, $event)"><i class="fas fa-edit"></i> Edit</button>
+      <button class="delete-btn my-btn" (click)="deleteBlog(blog._id, $event)"><i class="fas fa-remove"></i> Delete</button>
+    </div>
+      <ng-container *ngIf="blog.Blog_image && blog.title">
+        <div class="card-img">
+          <img
+            [src]="'http://localhost:4002' + blog.Blog_image"
+            alt="Blog Image"
+            class="blog-image"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="blog-title">{{ blog.title }}</h5>
+          <p class="blog-description">
+            {{ blog.des || "No description available." }}
+          </p>
+          <div class="blog-meta">
+            <span> {{ blog.comments?.length || 0 }} Comments &bull; </span>
+            <span> {{ blog.views || 0 }} Views </span>
+          </div>
+          <div class="author-info">
+            <img
+              [src]="'http://localhost:4002/uploads/admin.jpg'"
+              class="author-img"
+            />
+            <div class="author-details">
+              <h6 class="author-name">
+                {{
+                  blog.author?.personal_info?.fullname || "Unknown Author"
+                }}
+              </h6>
+              <p class="publish-date">
+                {{ blog.publishedAt | date : "medium" }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

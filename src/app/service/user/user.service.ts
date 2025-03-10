@@ -5,10 +5,8 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import Cookies from 'js-cookie';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private apiUrl = 'http://localhost:4002/user';
@@ -71,15 +69,26 @@ export class UserService {
       .pipe(
         tap((response: any) => {
           if (isPlatformBrowser(this.platformId)) {
-            localStorage.setItem('token', response.token);
-            localStorage.setItem('UserData', JSON.stringify(response.user)); // Store user data in localStorage
-            this.setTokenInCookies(response.token);
+            console.log("Login Response:", response);
+            if (response?.token) {
+              localStorage.setItem('token', response.token);
+              this.setTokenInCookies(response.token);
+            }
+              const userData = {
+              _id: response._id,
+              fullname: response.fullname,
+              email: response.email,
+              isAdmin: response.isAdmin
+            };
+            localStorage.setItem('UserData', JSON.stringify(userData)); 
+            console.log("Stored UserData:", JSON.stringify(userData));
+  
             this.router.navigate(['/home']);
           }
         })
       );
   }
-
+  
   selectUser(user: any): void {
     this.selectedUserSource.next(user);
   }

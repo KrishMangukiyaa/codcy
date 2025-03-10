@@ -1,1 +1,13 @@
-<p>dashbord works!</p>
+<div class="dashbord-container container">
+  <div class="dashbord-wrapper">
+    <div class="lien-chart-container">
+      <app-chart [chartData]="chartData"></app-chart>
+    </div>
+    <div class="pi-chart-container">
+      <app-pi-chart></app-pi-chart>
+    </div>
+  </div>
+</div>
+<div class="user-table">
+  <app-users-table></app-users-table>
+</div>

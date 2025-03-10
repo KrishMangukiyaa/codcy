@@ -1,0 +1,26 @@
+canvas {
+  max-width: 230px;
+  max-height: 230px;
+}
+
+.pi-chart {
+  background-color: var(--chart-background);
+  border-radius: 20px;
+  border: none;
+  padding: 20px;
+  height: 290px;
+
+  h3{
+    font-size: var(--h3-font-size);
+    font-weight: var(--title-font-weight-extra);
+  }
+}
+
+.pi-chart-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}

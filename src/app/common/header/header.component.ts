@@ -14,6 +14,8 @@ export class HeaderComponent {
   isDarkMode = false;
   categories: any[] = [];
   isDropdownOpen = false;
+  isAdmin: boolean = false;
+
 
   toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
@@ -37,8 +39,12 @@ export class HeaderComponent {
   }
 
   ngOnInit() {
+    const userData = localStorage.getItem('UserData');
+    if (userData) {
+      const user = JSON.parse(userData);
+      this.isAdmin = user.isAdmin || false;
+    }
     this.fetchCategories();
-    // console.log("categorise",this.categories)
   }
 
   toggleTheme() {
@@ -89,5 +95,13 @@ export class HeaderComponent {
     console.log(this.isDropdownOpen)
   }
 
+  isAdminDropdownOpen = false;
 
+  openAdminDropdown() {
+    this.isAdminDropdownOpen = true;
+  }
+  
+  closeAdminDropdown() {
+    this.isAdminDropdownOpen = false;
+  }
 }
