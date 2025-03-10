@@ -87,9 +87,7 @@ export class WriteABlogComponent implements OnInit {
 
 
   submitBlog() {
-    const formData = new FormData();
-    debugger
-    
+    const formData = new FormData();    
     // Append form fields
     formData.append('title', this.blogForm.get('title')?.value);
     formData.append('des', this.blogForm.get('des')?.value);

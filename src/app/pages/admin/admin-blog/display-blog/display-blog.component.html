@@ -10,7 +10,7 @@
     <div
       class="blog-card"
       *ngFor="let blog of categoriesWithBlogs"
-      [routerLink]="['/blog', blog._id]"
+      [routerLink]="['/home/blog', blog._id]"
     >
     <div class="card-buttons">
       <button class="edit-btn my-btn" (click)="editBlog(blog, $event)"><i class="fas fa-edit"></i> Edit</button>

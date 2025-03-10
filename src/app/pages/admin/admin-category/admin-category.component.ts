@@ -28,7 +28,6 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   editCategory(categoryId: string): void {
-    debugger
     this.router.navigate(['/admin/category/edit', categoryId]);
   }
 

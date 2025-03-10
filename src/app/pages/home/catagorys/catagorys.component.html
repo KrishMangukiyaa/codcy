@@ -5,11 +5,11 @@
       *ngFor="let category of categories"
       class="category-card"
       [style.backgroundColor]="category.color"
-      [routerLink]="['/category', category._id]"
+      [routerLink]="['/home/category', category._id]"
     >
       <ul class="tag-name-wrapper">
         <li class="tag-name">
-          <a [routerLink]="['/category', category._id]">{{ category.name }}</a>
+          <a [routerLink]="['/home/category', category._id]">{{ category.name }}</a>
         </li>
       </ul>
       <h3>{{ category.description }}</h3>

@@ -1,1 +1,44 @@
-https://www.3forty.media/koga/demo/category/lifestyle/
+<div class="blog-page blog-page-container">
+  <h1 *ngIf="blogs.length === 0" class="title no-blogs">No Blog Found in this Category</h1>
+  <h1 class="title">
+    {{ categoryName }} <span class="badge" [ngStyle]="{ 'background-color': categoryColor }" >{{ blogs.length }}</span>
+  </h1>
+  <p class="description">{{ categoryDescription }}</p>
+
+  <div class="blog-container">
+    <!-- Blog Cards -->
+    <div class="blog-card-wrapper">
+      <div
+        class="blog-card"
+        *ngFor="let blog of blogs; let i = index"
+        [ngStyle]="{ 'background-color': blog.categoryColor }"
+        [ngClass]="{ 'extra-margin': i === 1 }"
+      >
+        <div class="blog-image">
+          <img [src]="'http://localhost:4002' + blog.image" alt="Blog Image" />
+        </div>
+        <div class="blog-content">
+          <h3 class="blog-title">{{ blog.title }}</h3>
+          <p class="blog-meta">{{ blog.comments }} • {{ blog.views }} Views</p>
+          <p class="blog-meta blog-meta-second">• {{ blog.readTime }}</p>
+          <p class="blog-description">
+            {{
+              blog.content.length > 150
+                ? blog.content.substring(0, 150) + "..."
+                : blog.content
+            }}
+          </p>
+          <div class="blog-footer">
+            <span class="author">By {{ blog.author }}</span>
+            <span class="date">{{ blog.date }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar for Latest Blogs -->
+    <div class="blog-sidebar-latest">
+      <app-latest></app-latest>
+    </div>
+  </div>
+</div>

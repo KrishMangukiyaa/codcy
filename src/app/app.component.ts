@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { ChatComponent } from "./common/chat/chat.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ChatComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

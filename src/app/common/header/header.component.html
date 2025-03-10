@@ -33,7 +33,7 @@
               *ngIf="isDropdownOpen && categories.length > 0"
             >
               <li *ngFor="let category of categories">
-                <a class="dropdown-list" href="#">{{ category.name }}</a>
+                <a class="dropdown-list" [routerLink]="['/home/category', category._id ]">{{ category.name }}</a>
               </li>
             </ul>
           </li>

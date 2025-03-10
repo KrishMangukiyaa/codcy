@@ -3,7 +3,7 @@
     <div
       *ngFor="let item of latestViews  | slice:0:5; let i = index"
       class="view-item d-flex"
-      [routerLink]="['/blog', item._id]"
+      [routerLink]="['/home/blog', item._id]"
     >
       <div class="number-box" [ngStyle]="{ 'background-color': item.category.color }">
         {{ ("0" + (i + 1)).slice(-2) }}

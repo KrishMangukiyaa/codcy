@@ -30,7 +30,6 @@ export class HeaderComponent {
     @Inject(PLATFORM_ID) private platformId: object,
     private categoryService: CategoryService
   ) {
-    // Check if running in the browser before accessing localStorage
     if (isPlatformBrowser(this.platformId)) {
       const savedTheme = localStorage.getItem('theme');
       this.isDarkMode = savedTheme === 'dark';
@@ -72,10 +71,10 @@ export class HeaderComponent {
       (data) => {
         if (Array.isArray(data)) {
           this.categories = data;
+          
         } else {
           console.error('Unexpected data format:', data);
         }
-        // console.log('Categories:', this.categories);
       },
       (error) => {
         console.error('Error fetching categories:', error);

@@ -1,0 +1,116 @@
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48%;
+  background: var(--ChatBot-background);
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 480px;
+  color: var(--theme-text);
+  font-weight: var(--title-font-weight-extra);
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.chat-heading-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .my-btn{
+        color: var(--theme-text);
+        font-size: var(--h2-font-size);
+        background-color: transparent;
+        padding: 10px;
+    }
+}
+
+
+.chat-open{
+    transform: translateY(0) !important;
+    opacity: 1;
+    visibility: visible;
+  }  
+
+.chat-display-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  font-size: var(--h3-font-size);
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+.user {
+  align-self: flex-end;
+  background: var(--card-background-color-1);
+  color: var(--h1-color);
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.ai {
+  align-self: flex-start;
+  background: #c6def1;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.input-area {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.9rem;
+}
+
+.chat-box::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 15s ease-in-out;
+  position: relative;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: var(--scroller-background);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 15s ease-in-out;
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: transparent !important;
+}

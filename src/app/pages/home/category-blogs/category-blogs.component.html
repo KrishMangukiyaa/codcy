@@ -1,7 +1,7 @@
 <div class="container blog-card-container">
   <div *ngFor="let category of categoriesWithBlogs">
     <ng-container *ngIf="category.blogs ">
-      <h1 class="category-title" [routerLink]="['/category', category._id]">
+      <h1 class="category-title" [routerLink]="['/home/category', category._id]">
         {{ category.name }} <span class="dot">&bull;</span>
       </h1>
       <div class="blog-grid">
@@ -9,7 +9,7 @@
           class="blog-card"
           [ngStyle]="{ 'background-color': category.color }"
           *ngFor="let blog of category.blogs.slice(0, 3)"
-          [routerLink]="['/blog', blog._id]"
+          [routerLink]="['/home/blog', blog._id]"
         >
           <ng-container *ngIf="blog.Blog_image && blog.title">
             <div class="card-img">
@@ -22,7 +22,7 @@
             <div class="tag-name-wrapper">
               <ul>
                 <li>
-                  <a [routerLink]="['/category', category._id]">{{ category.name }}</a>
+                  <a [routerLink]="['/home/category', category._id]">{{ category.name }}</a>
                 </li>
               </ul>
             </div>

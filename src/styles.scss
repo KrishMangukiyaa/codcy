@@ -220,6 +220,7 @@
   --chart-background: rgba(-255, -255, -255, 0.4);
   --popup-background: rgba(0, 0, 0, 0.7);
   --editting-sidebar-background: rgba(0, 0, 0, 0.3);
+  --ChatBot-background: rgba(0, 0, 0, 0.9);
 }
 
 .light-theme {
@@ -232,6 +233,7 @@
   --chart-background: rgba(-255, -255, -255, 0.06);
   --popup-background: rgba(255, 255, 255, 0.8)
   --editting-sidebar-background: #fff;
+  --ChatBot-background: rgba(255, 255, 255, 0.9);
 }
 
 body {
@@ -257,7 +259,6 @@ p {
   position: absolute;
   top: 20px;
   left: -30px;
-  flex-direction: column;
   font-size: 12px;
   font-weight: 600;
   transform: rotate(270deg);

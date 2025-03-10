@@ -21,7 +21,6 @@ export class CategoryBlogsComponent {
           ...category,
           blogs: category.blogs.slice(0, 3)
         }));
-        debugger
       },
       (error) => {
         console.error('Error fetching home categories with blogs:', error);

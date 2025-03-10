@@ -45,5 +45,9 @@ export class AdminService {
   toggleShowOnHome(categoryId: string): Observable<any> {
     return this.http.patch(`${this.apiUrl}category/toggle-show-on-home/${categoryId}`, {});
   }
+
+  getCategoryBlogs(id: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}blogs/getBlogsByCategory/${id}`);
+  }
   
 }

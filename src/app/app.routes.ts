@@ -37,21 +37,21 @@ export const routes: Routes = [
         component: ProfileComponent,
         canActivate: [AuthAccessService],
       },
+      {
+        path: 'blog/:id',
+        component: BlogComponent,
+        canActivate: [AuthAccessService],
+      },
+      {
+        path: 'category/:id',
+        component: CatagoryComponent,
+        canActivate: [AuthAccessService],
+      },
     ],
   },
   {
     path: 'platform',
     component: PlatformComponent,
-    canActivate: [AuthAccessService],
-  },
-  {
-    path: 'blog/:id',
-    component: BlogComponent,
-    canActivate: [AuthAccessService],
-  },
-  {
-    path: 'category/:id',
-    component: CatagoryComponent,
     canActivate: [AuthAccessService],
   },
   {
