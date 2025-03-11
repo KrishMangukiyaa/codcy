@@ -37,7 +37,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" routerLink="/home/profile">Profile</a></li>
+          <li class="nav-item"><a class="nav-link"  [routerLink]="['/home/profile', UserId]">Profile</a></li>
           <li class="nav-item"><a class="nav-link" routerLink="/platform">Platform</a></li>
           <li
           class="nav-item nav-menu"
@@ -71,14 +71,14 @@
       </div>
 
       <div class="nav-icons">
+        <button class="subscribe-btn my-btn" routerLink="/login">Login</button>
         <i
           class="fas"
           [ngClass]="isDarkMode ? 'fa-moon' : 'fa-sun'"
           (click)="toggleTheme()"
         >
         </i>
-        <i class="fas fa-search"></i>
-        <button class="subscribe-btn my-btn" routerLink="/login">Login</button>
+        <i class="fas fa-sign-out" (click)="signOut()"></i>
       </div>
 
       <button

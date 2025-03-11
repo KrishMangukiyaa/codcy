@@ -6,13 +6,13 @@
   <p class="description">{{ categoryDescription }}</p>
 
   <div class="blog-container">
-    <!-- Blog Cards -->
     <div class="blog-card-wrapper">
       <div
         class="blog-card"
         *ngFor="let blog of blogs; let i = index"
         [ngStyle]="{ 'background-color': blog.categoryColor }"
         [ngClass]="{ 'extra-margin': i === 1 }"
+        [routerLink]="['/home/blog', blog.blogId]"
       >
         <div class="blog-image">
           <img [src]="'http://localhost:4002' + blog.image" alt="Blog Image" />
@@ -24,7 +24,7 @@
           <p class="blog-description">
             {{
               blog.content.length > 150
-                ? blog.content.substring(0, 150) + "..."
+                ? blog.content.substring(0, 50) + "..."
                 : blog.content
             }}
           </p>

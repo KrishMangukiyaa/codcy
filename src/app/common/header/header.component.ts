@@ -1,6 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CategoryService } from '../../service/category/category.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class HeaderComponent {
   categories: any[] = [];
   isDropdownOpen = false;
   isAdmin: boolean = false;
-
+  UserId: string = '';
 
   toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
@@ -28,7 +28,8 @@ export class HeaderComponent {
   constructor(
     private renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId: object,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) {
     if (isPlatformBrowser(this.platformId)) {
       const savedTheme = localStorage.getItem('theme');
@@ -42,6 +43,7 @@ export class HeaderComponent {
     if (userData) {
       const user = JSON.parse(userData);
       this.isAdmin = user.isAdmin || false;
+      this.UserId = user._id
     }
     this.fetchCategories();
   }
@@ -103,4 +105,18 @@ export class HeaderComponent {
   closeAdminDropdown() {
     this.isAdminDropdownOpen = false;
   }
+  signOut(): void {
+    // Clear localStorage
+    localStorage.clear();
+
+    // Clear cookies manually
+    document.cookie.split(";").forEach((cookie) => {
+      const [name] = cookie.split("=");
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    });
+
+    // Redirect to login page
+    this.router.navigate(['/login']);
+  }
+
 }

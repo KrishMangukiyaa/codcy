@@ -1,0 +1,40 @@
+<div class="blog-container" *ngIf="blog">
+    <!-- Blog Header -->
+    <div class="blog-header">
+      <img [src]="'http://localhost:4002' + blog.Blog_image" alt="Blog Header" class="blog-image" />
+      <div class="blog-title">
+        <h1>{{ blog.title }}</h1>
+        <p class="meta">Published: {{ blog.publishedAt | date: 'medium' }} · {{ blog.views }} Views</p>
+      </div>
+    </div>
+  
+    <!-- Blog Content -->
+    <div class="blog-body">
+      <p class="description">{{ blog.des }}</p>
+  
+      <div class="blog-content" *ngFor="let section of blog.content">
+        <div class="custom-content" [innerHTML]="section"></div>
+      </div>
+  
+      <!-- Quote Section -->
+      <!-- <div class="quote-box">
+        <blockquote>
+          "The future belongs to those who believe in the beauty of their dreams."
+          <span class="author">— Eleanor Roosevelt</span>
+        </blockquote>
+      </div> -->
+  
+      <!-- Tags Section -->
+      <div class="tags">
+        <h2>Tags</h2>
+        <span *ngFor="let tag of blog.tags" class="tag">{{ tag }}</span>
+      </div>
+  
+      <!-- Activity Stats -->
+      <div class="stats">
+        <span>👍 {{ blog.activity.total_likes }} Likes</span>
+        <span>💬 {{ blog.comments.length }} Comments</span>
+      </div>
+    </div>
+  </div>
+  

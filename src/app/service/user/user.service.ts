@@ -69,26 +69,26 @@ export class UserService {
       .pipe(
         tap((response: any) => {
           if (isPlatformBrowser(this.platformId)) {
-            console.log("Login Response:", response);
+            console.log('Login Response:', response);
             if (response?.token) {
               localStorage.setItem('token', response.token);
               this.setTokenInCookies(response.token);
             }
-              const userData = {
+            const userData = {
               _id: response._id,
               fullname: response.fullname,
               email: response.email,
-              isAdmin: response.isAdmin
+              isAdmin: response.isAdmin,
             };
-            localStorage.setItem('UserData', JSON.stringify(userData)); 
-            console.log("Stored UserData:", JSON.stringify(userData));
-  
+            localStorage.setItem('UserData', JSON.stringify(userData));
+            console.log('Stored UserData:', JSON.stringify(userData));
+
             this.router.navigate(['/home']);
           }
         })
       );
   }
-  
+
   selectUser(user: any): void {
     this.selectedUserSource.next(user);
   }
@@ -100,5 +100,29 @@ export class UserService {
         withCredentials: true,
       })
       .pipe(tap((response: any) => {}));
+  }
+
+  getProfile(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/profile/${userId}`);
+  }
+
+  updateProfile(userId: string, profileData: any): Observable<any> {
+    const token = localStorage.getItem('token'); // Retrieve token
+
+    if (!token) {
+      console.error('No token found!');
+      throw new Error('User not authenticated'); // Prevent sending request
+    }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`, // Send token in header
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.put(
+      `${this.apiUrl}/updateProfile/${userId}`,
+      profileData,
+      { headers }
+    );
   }
 }

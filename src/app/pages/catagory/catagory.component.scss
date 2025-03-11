@@ -46,12 +46,13 @@
 
 .blog-card {
   border-radius: 8px;
-  max-width: 260px;
+  max-width: 280px;
   width: 100%;
   max-height: fit-content;
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
   color: var(--h1-color);
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-10px);

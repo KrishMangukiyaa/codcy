@@ -3,62 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../../service/user/user.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  // currentStep = 1;
-  // registerForm: FormGroup;
-
-  // constructor(
-  //   private fb: FormBuilder,
-  //   private router: Router,
-  //   private userService: UserService
-  // ) {
-  //   this.registerForm = this.fb.group({
-  //     email: ['', [Validators.required, Validators.email]],
-  //     password: ['', Validators.required],
-  //     fullname: ['', Validators.required],
-  //     bio: ['', Validators.required],
-  //     profileImage: ['', Validators.required],
-  //   });
-  // }
-
-  // async register() {
-  //   debugger;
-  //   if (this.registerForm.valid) {
-  //     (await this.userService.register(this.registerForm.value)).subscribe(
-  //       (response) => {
-  //         console.log('Register successful', response);
-  //         this.router.navigateByUrl('/login');
-  //       },
-  //       (error) => {
-  //         console.error('Register failed', error);
-  //       }
-  //     );
-  //   } else {
-  //     console.error('Form is invalid');
-  //   }
-  // }
-
-  // nextStep() {
-  //   if (this.currentStep < 3) {
-  //     this.currentStep++;
-  //   }
-  // }
-
-  // prevStep() {
-  //   if (this.currentStep > 1) {
-  //     this.currentStep--;
-  //   }
-  // }
-
-
 
   registerForm: FormGroup;
   selectedFile: File | null = null;

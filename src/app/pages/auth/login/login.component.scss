@@ -1,11 +1,109 @@
-
-.login-form {
-  background: #fff;
-  max-width: 400px;
+.container {
   width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100vh;
+  flex-direction: row-reverse;
+  background: linear-gradient(
+    -45deg,
+    var(--card-background-color-1),
+    var(--save-btn),
+    var(--my-btn-background),
+    var(--backgroung-light-dark)
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding: 30px;
+    border-radius: 12px;
+    border: none;
+    width: 55%;
+    justify-content: end;
+    text-align: center;
+    background-color: transparent;
+
+    h2 {
+      margin-bottom: 50px !important;
+      font-size: var(--h1-font-size);
+      color: var(--theme-text);
+      font-weight: var(--title-font-weight-extra);
+      // width: 20ch;
+      // text-wrap: nowrap;
+      // overflow: hidden;
+      // animation: typing 2s steps(20) infinite alternate-reverse;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: var(--h3-font-size);
+        font-weight: var(--title-font-weight);
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: none;
+        font-size: var(--h6-font-size);
+        font-weight: var(--title-font-weight-extra);
+      }
+
+      input[type="file"] {
+        border: none;
+      }
+    }
+
+    button {
+      width: 60%;
+      margin: 20px auto auto;
+      transition: 0.3s;
+    }
+  }
+}
+.regiter-img-container {
+  width: 40%;
 }
 
-.lock-img {
-  width: 80px;
-  height: 80px;
+.login-img {
+  max-width: 500px;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+
+.register-footer {
+  margin-top: 20px !important;
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

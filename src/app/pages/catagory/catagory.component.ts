@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { LatestComponent } from '../../common/latest/latest.component';
 import { CommonModule } from '@angular/common';
 import { AdminService } from '../../service/admin/admin.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-catagory',
-  imports: [LatestComponent, CommonModule],
+  imports: [LatestComponent, CommonModule, RouterLink],
   templateUrl: './catagory.component.html',
   styleUrl: './catagory.component.scss',
 })
@@ -50,6 +50,7 @@ export class CatagoryComponent implements OnInit {
           this.blogs = response.map((blog) => ({
             title: blog.title,
             image: blog.Blog_image,
+            blogId: blog._id,
             content: blog.content[0],
             category: blog.category.name,
             categoryColor: blog.category.color,

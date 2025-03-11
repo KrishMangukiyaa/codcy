@@ -33,7 +33,7 @@ export const routes: Routes = [
         component: MainComponent,
       },
       {
-        path: 'profile',
+        path: 'profile/:id',
         component: ProfileComponent,
         canActivate: [AuthAccessService],
       },

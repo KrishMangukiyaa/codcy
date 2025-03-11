@@ -103,8 +103,7 @@ export class UpdateBlogComponent implements OnInit {
           content: data.content,
           draft: data.draft
         });
-  
-        // Set content in the editor (if required)
+
         if (this.blogContent) {
           this.blogContent.nativeElement.innerHTML = data.content;
         }
@@ -117,6 +116,7 @@ export class UpdateBlogComponent implements OnInit {
     formData.append('des', this.blogForm.get('des')?.value);
     formData.append('category', this.blogForm.get('category')?.value);
     formData.append('tags', this.blogForm.get('tags')?.value);
+    formData.append("Blog_image", this.selectedFile);
     formData.append('draft', this.blogForm.get('draft')?.value);
     
     if (this.selectedFile) {
@@ -138,12 +138,11 @@ export class UpdateBlogComponent implements OnInit {
   
     formData.append('content', contentArray.join(''));
   
-    // Check if we are updating or adding a new blog
     if (history.state.blogData?._id) {
       this.blogService.updateBlog(history.state.blogData._id, formData).subscribe({
         next: (res) => {
           console.log('Blog updated successfully', res);
-          this.router.navigate(['/admin/blog']); // Redirect after update
+          this.router.navigate(['/admin/blog']);
         },
         error: (err) => {
           console.error('Error updating blog:', err);
