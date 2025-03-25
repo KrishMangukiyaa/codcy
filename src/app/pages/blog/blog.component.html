@@ -32,9 +32,22 @@
   
       <!-- Activity Stats -->
       <div class="stats">
-        <span>👍 {{ blog.activity.total_likes }} Likes</span>
-        <span>💬 {{ blog.comments.length }} Comments</span>
+        <div class="like">
+
+          <i class="fas fa-heart"
+          *ngIf="!blog.activity.likedBy.includes(userId)"
+          (click)="likeBlog()"></i>
+          <i class="fas fa-heart i-color text-red-500"
+             *ngIf="blog.activity.likedBy.includes(userId)"
+             (click)="unlikeBlog()"></i>
+          <span>{{ blog.activity.total_likes }} Likes</span>
+        </div>
+  
+  
+  
+        <!-- <span>💬 {{ blog.comments.length }} Comments</span> -->
       </div>
+  
     </div>
   </div>
   

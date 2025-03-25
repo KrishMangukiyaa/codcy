@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FooterService {
-  private apiUrl = 'http://localhost:4002/subscribe';
+  private apiUrl = 'http://localhost:4002/';
 
   constructor(private http: HttpClient) {}
 
-  subscribess(email: string): Observable<any> {
-    return this.http.post(this.apiUrl, { email });
+  subscribess(email: string, userId: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}subscribe`, { email });
   }
   getSocialLinks(): Observable<any> {
     return this.http.get<any>(this.apiUrl);

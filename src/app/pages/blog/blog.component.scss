@@ -70,7 +70,7 @@
   font-size: 16px;
   margin-top: 10px;
   font-style: normal;
-  color: #ffcc00;
+  // color: #ffcc00;
 }
 
 .tags {
@@ -80,7 +80,7 @@
 .tags h2 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #ffcc00;
+  // color: #ffcc00;
 }
 
 .tag {
@@ -99,6 +99,23 @@
   margin-top: 20px;
   font-size: 16px;
   font-weight: 500;
-  color: #ffcc00;
+  // color: #ffcc00;
 }
+
+.like{
+
+  display: flex;
+  align-items: center;
+  i{
+    margin-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .i-color{
+    color: red;
+    
+  }
+}
+
 

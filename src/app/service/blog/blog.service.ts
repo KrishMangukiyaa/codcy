@@ -21,4 +21,13 @@ export class BlogService {
   updateBlog(id: string, blogData: FormData) {
     return this.http.put(`${this.apiUrl}updateBlog/${id}`, blogData);
   }
+  
+  likeBlog(blogId: string, userId: string): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${blogId}/like`, { userId });
+  }
+  
+  unlikeBlog(blogId: string, userId: string): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${blogId}/unlike`, { userId });
+  }
+
 }

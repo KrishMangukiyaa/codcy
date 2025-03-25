@@ -26,6 +26,10 @@
 .editors-picks h3 {
   font-weight: var(--title-font-weight-extra);
   color: var(--h1-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .scroll-container {

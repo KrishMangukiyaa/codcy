@@ -16,6 +16,7 @@ export class FooterComponent {
   successMessage: string = '';
   errorMessage: string = '';
   socialLinks: any = {};
+  userId: string | null = null;
 
 
   constructor(private fb: FormBuilder, private subscriptionService: FooterService) {
@@ -33,7 +34,12 @@ export class FooterComponent {
 
   onSubmit() {
     if (this.subscribeForm.valid) {
-      this.subscriptionService.subscribess(this.subscribeForm.value.email).subscribe(
+      const userData = localStorage.getItem('UserData');
+      if (userData) {
+        this.userId = JSON.parse(userData)._id;
+        console.log(this.userId)
+      }
+      this.subscriptionService.subscribess(this.subscribeForm.value.email, userData).subscribe(
         response => this.successMessage = 'Subscribed successfully!',
         error => this.errorMessage = 'Subscription failed. Try again.'
       );
@@ -42,7 +48,7 @@ export class FooterComponent {
 
   handleClick(event: Event, link: string | undefined) {
     if (!link) {
-      event.preventDefault(); // Prevents navigation if the link is empty
+      event.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
